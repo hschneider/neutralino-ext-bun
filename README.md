@@ -1,4 +1,4 @@
-# neutralino-ext-python
+# neutralino-ext-bun
 **A Bun Extension for Neutralino**
 
 ### Why Bun?
