@@ -1,47 +1,38 @@
 # neutralino-ext-python
-**A Python Extension for Neutralino**
+**A Bun Extension for Neutralino**
 
-This extension adds a Python3 backend to Neutralino with the following features:
+This extension adds a Bun backend to Neutralino with the following features:
 - Requires only a few lines of code on both ends.
-- Read all events from the Neutralino app in your Python code.
-- Run Python functions from Neutralino.
-- Run Neutralino functions from Python.
-- All communication between Neutralino and Python runs asynchronously.
+- Read all events from the Neutralino app in your Bun code.
+- Run Bun functions from Neutralino.
+- Run Neutralino functions from Bun.
+- All communication between Neutralino and Bun runs asynchronously.
 - All events are queued, so none will be missed during processing.
-- Track the data flow between Neutralino and Python in realtime.
+- Track the data flow between Neutralino and Bun in realtime.
+- Use Bun's integrated, browser-based debugger while your Neutralino App is running.
 - Works in Window- and headless Cloud-Mode.
-- Terminates the Python interpreter when the Neutralino app quits.
+- Terminates the Bun Runtime when the Neutralino app quits.
 
 ![Neutralino Python Extension](https://marketmix.com/git-assets/neutralino-ext-python/neutralino-python-extension.gif)
 
 ## Run the demo
-The demo opens a Neutralino app. Clicking on the blue link sends a Ping to Python, which replies with Pong.
+The demo opens a Neutralino app. Clicking on the blue link sends a Ping to Bun, which replies with Pong.
 This illustrates the data-flow in both directions. 
 
-Before running the demo, adapt the path to your Python interpreter in the **neutralino.config.json** file:
-
-Replace this:
-```json
- "extensions": [
-    {
-      "id": "extPython",
-      "commandDarwin": "${NL_PATH}/extensions/python/_interpreter/python3.framework/Versions/Current/bin/python3 ${NL_PATH}/extensions/python/main.py",
-      "commandWindows": "${NL_PATH}/extensions/python/_interpreter/pypy3/pypy.exe ${NL_PATH}/extensions/python/main.py"
-    }
-  ]
-```
-with e.g. 
-```json
- "extensions": [
-    {
-      "id": "extPython",
-      "commandDarwin": "python3 ${NL_PATH}/extensions/python/main.py",
-      "commandWindows": "python3 ${NL_PATH}/extensions/python/main.py"
-    }
-  ]
+Before running the demo, the Bun runtime needs to be installed into the extension folder:
+```bash
+cd ext-bun/extensions/bun
+./install.sh
 ```
 
-When including the extension in your own project, make sure that your config contains this whitelist:
+If you need to install further Packages, use the **bun.sh script** instead of bun. This starts the relocated runtime
+instead of your standard Bun installation, e.g.:
+```bash
+cd ext-bun/extensions/bun
+./bun.sh install PACKAGE
+```
+
+When including the extension in your own project, make sure that **neutralino.config.json** contains this whitelist:
 ```json
   "nativeAllowList": [
     "app.*",
@@ -53,13 +44,7 @@ When including the extension in your own project, make sure that your config con
   ],
 ```
 
-Next, prepare your Python environment with:
-```commandline
-# python3 -m pip install --no-binary :all: simple-websocket
-# python3 -m pip install --no-binary :all: simple-websocket-server
-```
-
-After this, run these commands in the ext-python folder:
+After this, run these commands in the ext-bun folder:
 ```commandline
 neu update
 neu run
@@ -69,54 +54,49 @@ neu run
 Just follow these steps:
 - Modify **neutralino.config.json**, like mentioned in **"Run the demo"**.
 - Copy the **extensions** folder to your project.
-- Adapt the Python code in **extensions/python/main.py** to your needs.
-- Copy **resources/js/python-extension.js** to **resources/js**.
-- Add `<script src="js/python-extension.js"></script>` to your **index.html**
-- Add `const PYTHON = new PythonExtension(true)` to your **main.js**
-- Add **PYTHON.run(function_name, data) to main.js** to run Python functions from Neutralino.
-- Add **event listeners to main.js**, to fetch result data from Python.
+- Adapt the JS code in **extensions/bun/main.js** to your needs.
+- Copy **resources/js/bun-extension.js** to **resources/js**.
+- Add `<script src="js/bun-extension.js"></script>` to your **index.html**
+- Add `const BUN = new BunExtension(true)` to your **main.js**
+- Add **BUN.run(function_name, data) to main.js** to run Bun functions from Neutralino.
+- Add **event listeners to main.js**, to fetch result data from Bun.
 
-## main.py explained
+## main.js explained
 
-```Python
-from NeutralinoExtension import *
+```JS
+const NeutralinoExtension = require('./neutralino-extension');
+const DEBUG = true;     // Print incoming event messages to the console
 
-DEBUG = True    # Print incoming event messages to the console
+function ping(d) {
+    //
+    // Send some data to the Neutralino app
 
-def ping(d):
-    #
-    # Send some data to the Neutralino app
+    ext.sendMessage('pingResult', `Bun says PONG, in reply to "${d}"`);
+}
 
-    ext.sendMessage('pingResult', f'Python says PONG, in reply to "{d}"')
+function processAppEvent(d) {
+    // Handle Neutralino app events.
+    // :param data: data package as JSON dict.
+    // :return: ---
 
-def processAppEvent(data):
-    """
-    Handle Neutralino app events.
-    :param data: data package as JSON dict.
-    :return: ---
-    """
+    if(d.event === 'runBun') {
+        if(d.data.function === 'ping') {
+            ping(d.data.parameter);
+        }
+    }
+}
 
-    if data['event'] == 'runPython':
-        (f, d) = ext.parseFunctionCall(data)
-
-        # Process incoming function calls:
-        # f: function name, d: data as JSON or string
-        #
-        if f == 'ping':
-            ping(d)
-
-
-# Activate extension
-#
-ext = NeutralinoExtension(DEBUG)
-asyncio.run(ext.run(processAppEvent))
+// Activate Extension
+//
+const ext = new NeutralinoExtension(DEBUG);
+ext.run(processAppEvent);
 ```
 
 The extension is activated with the last 2 lines. 
 **processAppEvent** is a callback function, which is triggered with each event coming from the Neutralino app.
 
-In the callback function, you can process the incoming events by their name. In this case we react to the **"runPython"** event.
-**parseFunctionCall(data)** extracts the **function name (f)** and its **parameters (p)** from the event's data package. Variable p can be a string or JSON dictionary.
+In the callback function, you can process the incoming events by their name. In this case we react to the **"runBun"** event.
+d**ata.function** holds the requested Bun function and **data.parameter** its data payload as string or JSON.
 
 if the requested function is named ping, we call the ping-function which sends a message back to Neutralino. 
 
@@ -124,13 +104,14 @@ if the requested function is named ping, we call the ping-function which sends a
 - An event name, here "pingResult"
 - The data package to send, which can be of type string or JSON.
 
-The **DEBUG** variable tells the NeutralinoExtension to report each event to the console. Incoming events, incoming function calls and outgoing messages are printed in different colors.
-This makes debugging easier, since you can track the data flow between Neutralino and Python:
+The **DEBUG** variable tells the NeutralinoExtension to report each event to the console. Incoming events, incoming 
+function calls and outgoing messages are printed in different colors.
+This makes debugging easier, since you can track the data flow between Neutralino and Bun:
 
 ![Debug Python](https://marketmix.com/git-assets/neutralino-ext-python/debug-python.jpg)
 
 ## main.js explained
-```Javascript
+```JS
 
 async function onPingResult(e) {
  ...
@@ -142,55 +123,56 @@ Neutralino.init();
 ...
 Neutralino.events.on("pingResult", onPingResult);
 ...
-// Init Python Extension
-const PYTHON = new PythonExtension(true)
+// Init Bun Extension
+const BUN = new BunExtension(true)
 ```
 
-The last line initializes the JavaScript part of the Python extension. It's important to place this after Neutralino.init() and after all event handlers have been installed. Put it in the last line of your code and you are good to go. The const **PYTHON** is accessible globally.
+The last line initializes the JavaScript part of the Bun extension. It's important to place this after Neutralino.init() and after all event handlers have been installed. Put it in the last line of your code and you are good to go. The const **BUN** is accessible globally.
 
-The **PythonExtension class** takes only 1 argument which instructs it to run in debug mode (here true). In this mode, all data from the Python extension is printed to the dev-console:
+The **BunExtension class** takes only 1 argument which instructs it to run in debug mode (here true). In this mode, all data from the Bun extension is printed to the dev-console:
 
 ![Debug Meutralino](https://marketmix.com/git-assets/neutralino-ext-python/debug-neutralino.jpg)
 
-The **pingResult event handler** listens to messages with the same name, sent by sendMessage() on Python's side. 
+The **pingResult event handler** listens to messages with the same name, sent by sendMessage() on Bun's side. 
 
-In **index.html**, you can see how to send data from Neutralino to Python, which is dead simple:
+In **index.html**, you can see how to send data from Neutralino to Bun, which is dead simple:
 ```html
-<a href="#" onclick="PYTHON.run('ping', 'Neutralino says PING!');">Send PING to Python</a><br>
+<a href="#" onclick="BUN.run('ping', 'Neutralino says PING!');">Send PING to Bun</a><br>
 ```
 
-**PYTHON.run()** takes 2 arguments:
-- The Python function to call, here "ping"
+**BUN.run()** takes 2 arguments:
+- The Bun function to call, here "ping"
 - The data package to submit, either as string or JSON.
 
 Below this link, you see
 ```html
-<a id="link-quit" href="#" onclick="PYTHON.stop();" style="display:none">Quit</a>
+<a id="link-quit" href="#" onclick="BUN.stop();" style="display:none">Quit</a>
 ```
-**PYTHON.stop()** is only required, when running Neutralino in cloud-mode. This will unload the Python extension gracefully.
+**BUN.stop()** is only required, when running Neutralino in cloud-mode. This will unload the BUN runtime gracefully.
 
 ## Classes overview
 
-### NeutralinoExtension.py
+### neutralino-extension.js
 
-| Method                           | Description                                                                                                                     |
-|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| NeutralinoExtension(debug=false) | Extension class. debug: Print data flow to the terminal.                                                                        |
+| Method                           | Description                                                                                                                    |
+|----------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| NeutralinoExtension(debug=false) | Extension class. debug: Print data flow to the terminal.                                                                       |
 | debugLog(msg, tag="info")        | Write a message to the terminal. msg: Message, tag: The message type, "in" for incoming, "out" for outgoing, "info" for others. |
-| parseFunctionCall(d)             | Extracts function-name (f) and parameter-data (p) from a message data package. Returns (f, p).                                  |
-| async run(onReceiveMessage)      | Starts the sockethandler main loop. onReceiveMessage: Callback function for incoming messages.                                  |
-| sendMessage(event, data=None)    | Send a message to Neutralino. event: Event-name, data: Data package as string or JSON dict.                                     |
+| run(onReceiveMessage)            | Starts the sockethandler main loop. onReceiveMessage: Callback function for incoming messages.                                 |
+| sendMessage(event, data=null)    | Send a message to Neutralino. event: Event-name, data: Data package as string or JSON.                                     |
 
-### python-extension.js
+### bun-extension.js
 
-| Method                       | Description                                                                                       |
-|------------------------------|---------------------------------------------------------------------------------------------------|
-| PythonExtension(debug=false) | Extension class. debug: Print data flow to the dev-console.                                       |
-| async run(f, p=null)         | Call a Python function. f: Function-name, p: Parameter data package as string or JSON.            |
-| async stop()                 | Stop and quit the Python extension and its parent app. Use this if Neutralino runs in Cloud-Mode. |
+| Method                    | Description                                                                                    |
+|---------------------------|------------------------------------------------------------------------------------------------|
+| BunExtension(debug=false) | Extension class. debug: Print data flow to the dev-console.                                    |
+| async run(f, p=null)      | Call a Bun function. f: Function-name, p: Parameter data package as string or JSON.            |
+| async stop()              | Stop and quit the Bun extension and its parent app. Use this if Neutralino runs in Cloud-Mode. |
 
 ## More about Neutralino
 [NeutralinoJS Home](https://neutralino.js.org) 
+
+[Bun Home](https://bun.sh)
 
 [Neutralino related blog posts at marketmix.com](https://marketmix.com/de/tag/neutralinojs/)
 
