@@ -1,6 +1,15 @@
 # neutralino-ext-python
 **A Bun Extension for Neutralino**
 
+### Why Bun?
+
+Bun is an all-in-one JavaScript runtime designed for speed:
+- It is extremely fast, in most cases 4 times faster than NodeJS.
+- Most NodeJS packages are compatible with Bun.
+- You can code in JS, TypeScript, NodeJS, JSX
+- It's powerful API comes with the fastest SQlite driver for JS.
+- Its all contained in a single file, which can be embedded without dependencies.
+
 This extension adds a Bun backend to Neutralino with the following features:
 - Requires only a few lines of code on both ends.
 - Read all events from the Neutralino app in your Bun code.
