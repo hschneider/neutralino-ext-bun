@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>NeutralinoJs sample app</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div id="neutralinoapp">
+      <h1>NeutralinoJs with BunExtension</h1>
+      <div style="margin-top:20px">
+        <a href="#" onclick="BUN.run('ping', 'Neutralino says PING!');">Send PING to Bun</a><br>
+        <a id="link-quit" href="#" onclick="BUN.stop();" style="display:none">Quit</a>
+      </div>
+      <div style="margin-top:20px">
+        Received messages:
+      </div>
+      <div id="msg" style="margin-top:20px">
+      </div>
+    </div>
+    <!-- Neutralino.js client. This file is gitignored, 
+        because `neu update` typically downloads it.
+        Avoid copy-pasting it. 
+        -->
+    <script src="js/neutralino.js"></script>
+    <!-- Your app's source files -->
+    <script src="js/bun-extension.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      if(NL_MODE === "cloud") {
+        e = document.getElementById("link-quit");
+        e.style.display = "block";
+      }
+    </script>
+  </body>
+</html>

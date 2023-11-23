@@ -1,0 +1,17 @@
+body {
+    text-align: left;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+    margin: 25px;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 1.5;
+}
+
+h1{
+    font-size: 28px;
+    font-weight: lighter;
+}
+
