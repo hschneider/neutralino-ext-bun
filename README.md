@@ -3,14 +3,14 @@
 
 ### Why Bun?
 
-Bun is an all-in-one JavaScript runtime designed for speed:
-- It is extremely fast, in most cases 4 times faster than NodeJS.
+Bun is an all-in-one JavaScript Runtime designed for speed:
+- It is extremely fast, in many cases 4 times faster than NodeJS.
 - Most NodeJS packages are compatible with Bun.
 - You can code in JS, TypeScript, NodeJS, JSX
 - It's powerful API comes with the fastest SQlite driver for JS.
-- Its all contained in a single file, which can be embedded without dependencies.
+- It's all contained in a single file, which can be embedded without dependencies.
 
-### Bun: The perfect NodeJS Extension for Neutralino
+### Bun: The perfect NodeJS-compatible extension for Neutralino
 
 This extension adds a Bun backend to Neutralino with the following features:
 - Requires only a few lines of code on both ends.
@@ -20,7 +20,7 @@ This extension adds a Bun backend to Neutralino with the following features:
 - All communication between Neutralino and Bun runs asynchronously.
 - All events are queued, so none will be missed during processing.
 - Track the data flow between Neutralino and Bun in realtime.
-- Use Bun's integrated, browser-based debugger while your Neutralino App is running.
+- Use Bun's integrated, browser-based debugger.
 - Works in Window- and headless Cloud-Mode.
 - Terminates the Bun Runtime when the Neutralino app quits.
 
