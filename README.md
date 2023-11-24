@@ -119,7 +119,7 @@ The **DEBUG** variable tells the NeutralinoExtension to report each event to the
 function calls and outgoing messages are printed in different colors.
 This makes debugging easier, since you can track the data flow between Neutralino and Bun:
 
-![Debug Bun / NodeJS](https://marketmix.com/git-assets/neutralino-ext-bun/bun-nodejs-console.jpg)
+![Debug Bun / NodeJS](https://marketmix.com/git-assets/neutralino-ext-bun/bun-nodejs-console-2.jpg) 
 
 Each debug run starts with a link to Bun's integrated, browser-based debugger: 
 
