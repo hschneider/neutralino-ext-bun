@@ -1,6 +1,8 @@
 # neutralino-ext-bun
 **A Bun Extension for Neutralino**
 
+> Leave a star in the top-right corner, if you like this repo.
+
 ### Why Bun?
 
 Bun is an all-in-one JavaScript Runtime designed for speed:
@@ -23,6 +25,10 @@ This extension adds a Bun backend to Neutralino with the following features:
 - Use Bun's integrated, browser-based debugger.
 - Works in Window- and headless Cloud-Mode.
 - Terminates the Bun Runtime when the Neutralino app quits.
+
+>Keep in mind that Bun's Windows support is still marked as 'highly experimental'.
+So don't expect this extension to work under Windows.
+However, subscribe to this repo and stay tuned.
 
 ![Neutralino Bun / NodeJS Extension](https://marketmix.com/git-assets/neutralino-ext-bun/bun-nodejs-neutralino.gif)
 
