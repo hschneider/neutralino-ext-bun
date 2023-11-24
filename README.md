@@ -1,9 +1,5 @@
 <p align="center">
-<img src="https://marketmix.com/git-assets/star-me-green-2.png">
-</p>
-
-<p align="center">
-<img src="https://marketmix.com/git-assets/neutralino-ext-bun/neutralino-bun-header.png" style="margin-left:auto;margin-right:auto">
+<img src="https://marketmix.com/git-assets/neutralino-ext-bun/neutralino-bun-header.png">
 </p>
 
 # neutralino-ext-bun
@@ -207,3 +203,4 @@ Below this link, you see
 
 [Neutralino related blog posts at marketmix.com](https://marketmix.com/de/tag/neutralinojs/)
 
+<img src="https://marketmix.com/git-assets/star-me.svg">
