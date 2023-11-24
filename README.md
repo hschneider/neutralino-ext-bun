@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://marketmix.com/git-assets/neutralino-ext-bun/neutralino-bun-header-2.png">
+<img src="https://marketmix.com/git-assets/neutralino-ext-bun/neutralino-bun-header.svg">
 </p>
 
 # neutralino-ext-bun
