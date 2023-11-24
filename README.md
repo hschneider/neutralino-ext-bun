@@ -1,6 +1,8 @@
 # neutralino-ext-bun
 **A Bun Extension for Neutralino**
 
+![Star Me](https://marketmix.com/git-assets/star-me.png)
+
 ### Why Bun?
 
 Bun is an all-in-one JavaScript Runtime designed for speed:
