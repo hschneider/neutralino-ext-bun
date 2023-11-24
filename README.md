@@ -5,6 +5,10 @@
 # neutralino-ext-bun
 **A Bun Extension for Neutralino**
 
+>Bun's Windows support is marked as 'highly experimental'.
+So don't expect this extension to work under Windows.
+However, subscribe to this repo and stay tuned.
+
 ### Why Bun?
 
 Bun is an all-in-one JavaScript Runtime designed for speed:
@@ -29,10 +33,6 @@ This extension adds a Bun backend to Neutralino with the following features:
 - Terminates the Bun Runtime when the Neutralino app quits.
 
 ![Neutralino Bun / NodeJS Extension](https://marketmix.com/git-assets/neutralino-ext-bun/bun-nodejs-neutralino.gif)
-
->Keep in mind that Bun's Windows support is still marked as 'highly experimental'.
-So don't expect this extension to work under Windows.
-However, subscribe to this repo and stay tuned.
 
 ## Run the demo
 The demo opens a Neutralino app. Clicking on the blue link sends a Ping to Bun, which replies with Pong.
