@@ -44,7 +44,9 @@ class NeutralinoExtension {
             }
         }
         if (this.socket.readyState === WebSocket.OPEN) {
-            this.socket.send(JSON.stringify(d));
+            let msg = JSON.stringify(d);
+            this.socket.send(msg);
+            this.debugLog(`${msg}`, 'out');
         } else {
             console.warn("WebSocket send: Socket is not connected.");
         }
