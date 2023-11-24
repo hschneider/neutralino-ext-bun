@@ -7,7 +7,7 @@
 
 >Bun's Windows support is marked as 'highly experimental'.
 So don't expect this extension to work under Windows.
-However development is in progress, so subscribe to this repo and stay tuned.
+However development is in progress, subscribe to this repo and stay tuned.
 
 ### Why Bun?
 
