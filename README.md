@@ -1,4 +1,4 @@
-![Star Me](https://marketmix.com/git-assets/star-me-on-github.png)
+![Star Me](https://marketmix.com/git-assets/star-me-on-github-green.png)
 # neutralino-ext-bun
 **A Bun Extension for Neutralino**
 
