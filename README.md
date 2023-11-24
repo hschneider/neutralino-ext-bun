@@ -1,5 +1,9 @@
 <p align="center">
-<img src="https://marketmix.com/git-assets/star-me-green-2.png">
+<img src="https://marketmix.com/git-assets/star-me-green-2.png" style="max-width:225px;margin-bottom:40px">
+</p>
+
+<p align="center">
+<img src="https://marketmix.com/git-assets/neutralino-ext-bun/neutralino-bun-header.png" style="margin-left:auto;margin-right:auto">
 </p>
 
 # neutralino-ext-bun
