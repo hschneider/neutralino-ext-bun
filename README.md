@@ -24,7 +24,7 @@ This extension adds a Bun backend to Neutralino with the following features:
 - Works in Window- and headless Cloud-Mode.
 - Terminates the Bun Runtime when the Neutralino app quits.
 
-![Neutralino Bun / NodeJS Extension](https://marketmix.com/git-assets/neutralino-ext-python/neutralino-python-extension.gif)
+![Neutralino Bun / NodeJS Extension](https://marketmix.com/git-assets/neutralino-ext-bun/bun-nodejs-neutralino.gif)
 
 ## Run the demo
 The demo opens a Neutralino app. Clicking on the blue link sends a Ping to Bun, which replies with Pong.
@@ -119,14 +119,15 @@ The **DEBUG** variable tells the NeutralinoExtension to report each event to the
 function calls and outgoing messages are printed in different colors.
 This makes debugging easier, since you can track the data flow between Neutralino and Bun:
 
-![Debug Bun / NodeJS](https://marketmix.com/git-assets/neutralino-ext-python/debug-python.jpg)
+![Debug Bun / NodeJS](https://marketmix.com/git-assets/neutralino-ext-bun/bun-nodejs-console.jpg)
 
 Each debug run starts with a link to Bun's integrated, browser-based debugger: 
 
+![Debug Bun / NodeJS](https://marketmix.com/git-assets/neutralino-ext-bun/bun-nodejs-neutralino-debug-link.jpg)
 
 Copy & paste the link into Google Chrome and start your live debug session:
 
-
+![Debug session in Bun / NodeJS](https://marketmix.com/git-assets/neutralino-ext-bun/bun-nodejs-neutralino-debug.jpg)
 
 ## main.js explained
 ```JS
@@ -149,7 +150,7 @@ The last line initializes the JavaScript part of the Bun extension. It's importa
 
 The **BunExtension class** takes only 1 argument which instructs it to run in debug mode (here true). In this mode, all data from the Bun extension is printed to the dev-console:
 
-![Debug Meutralino](https://marketmix.com/git-assets/neutralino-ext-python/debug-neutralino.jpg)
+![Debug Meutralino](https://marketmix.com/git-assets/neutralino-ext-bun/bun-nodejs-neutralino-console.jpg)
 
 The **pingResult event handler** listens to messages with the same name, sent by sendMessage() on Bun's side. 
 
