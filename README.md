@@ -3,7 +3,7 @@
 </p>
 
 # neutralino-ext-bun
-**A Bun Extension for Neutralino**
+**A Bun / NodeJS Extension for Neutralino**
 
 >Bun's Windows support is marked as 'highly experimental'.
 So don't expect this extension to work under Windows.
