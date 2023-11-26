@@ -3,7 +3,7 @@
 //
 // Neutralino BunExtension.
 //
-// (c)2023 Harald Schneider
+// (c)2023 Harald Schneider - marketmix.com
 
 const NeutralinoExtension = require('./neutralino-extension');
 const DEBUG = true;     // Print incoming event messages to the console

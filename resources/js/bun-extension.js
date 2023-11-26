@@ -2,7 +2,7 @@
 //
 // Run BunExtension functions by sending dispatched event messages.
 //
-// (c)2023 Harald Schneider
+// (c)2023 Harald Schneider - marketmix.com
 
 class BunExtension {
     constructor(debug=false) {

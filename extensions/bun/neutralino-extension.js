@@ -2,7 +2,7 @@
 //
 // A Bun extension engine for Neutralino.
 //
-// (c)2023 Harald Schneider
+// (c)2023 Harald Schneider - marketmix.com
 
 class NeutralinoExtension {
     constructor(debug=false) {
