@@ -85,9 +85,7 @@ Just follow these steps:
 The Bun runtime is extremely optimized for each architecture. As a result, you need different Bun binaries for Intel and 
 Apple Silicon. So the x64 binary won't run in an arm64 environment, even with Rosetta enabled.
 
-Keep this in mind for your build process, when embedding Bun in your app-bundle.
-
-These **[Build Scripts](https://github.com/hschneider/neutralino-build-scripts)** will help you to mange different resources in your build-worflow.
+Keep this in mind for your build process, when embedding Bun in your app-bundle. These **[Build Scripts](https://github.com/hschneider/neutralino-build-scripts)** will help you to mange different resources in your build-worflow.
 
 ## main.js explained
 
