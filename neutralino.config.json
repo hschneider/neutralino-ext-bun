@@ -41,8 +41,8 @@
     "resourcesPath": "/resources/",
     "extensionsPath": "/extensions/",
     "clientLibrary": "/resources/js/neutralino.js",
-    "binaryVersion": "4.14.1",
-    "clientVersion": "3.12.0"
+    "binaryVersion": "4.15.0",
+    "clientVersion": "3.13.0"
   },
   "extensions": [
     {
@@ -53,16 +53,22 @@
   ],
   "buildScript": {
     "mac": {
-      "architecture": ["x64", "arm64", "universal"],
+      "architecture": [
+        "x64",
+        "arm64",
+        "universal"
+      ],
       "minimumOS": "10.13.0",
-      "appName":  "ExtBunDemo",
-      "appBundleName":    "ExtBunDemo",
-      "appIdentifier":    "com.marketmix.ext.bun.demo",
-      "appIcon":  "icon.icns"
+      "appName": "ExtBunDemo",
+      "appBundleName": "ExtBunDemo",
+      "appIdentifier": "com.marketmix.ext.bun.demo",
+      "appIcon": "icon.icns"
     },
     "win": {
-      "architecture": ["x64"],
-      "appName":  "ExtBunDemo.exe"
+      "architecture": [
+        "x64"
+      ],
+      "appName": "ExtBunDemo.exe"
     }
   }
 }

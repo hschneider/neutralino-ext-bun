@@ -1,4 +1,4 @@
-// Type definitions for Neutralino 3.12.0
+// Type definitions for Neutralino 3.13.0
 // Project: https://github.com/neutralinojs
 // Definitions project: https://github.com/neutralinojs/neutralino.js
 
@@ -210,6 +210,8 @@ namespace window {
         hidden?: boolean;
         maximizable?: boolean;
         useSavedState?: boolean;
+        exitProcessOnClose?: boolean;
+        extendUserAgentWith?: string;
         processArgs?: string;
     }
     interface WindowSizeOptions {
@@ -316,7 +318,7 @@ declare const NL_MODE: "window"|"browser"|"cloud";
 declare const NL_VERSION: string;
 
 /** Neutralinojs client version */
-declare const NL_CVERSION: "3.12.0";
+declare const NL_CVERSION: "3.13.0";
 
 /** Current working directory */
 declare const NL_CWD: string;
