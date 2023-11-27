@@ -6,7 +6,7 @@
 
 class NeutralinoExtension {
     constructor(debug=false) {
-        this.version = '1.0.0';
+        this.version = '1.0.1';
 
         this.debug = debug;
         this.debugTermColors = true;             // Use terminal colors
@@ -96,6 +96,15 @@ class NeutralinoExtension {
         this.socket.on('error', (error) => {
             console.error(`WebSocket Error: ${error}`);
         });
+    }
+    isEvent(e, eventName) {
+        //
+        // Checks data package for a particular event.
+
+        if('event' in e && e.event === eventName) {
+            return true;
+        }
+        return false;
     }
 
     debugLog(msg, tag='info') {

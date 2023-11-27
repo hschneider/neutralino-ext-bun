@@ -105,7 +105,7 @@ function processAppEvent(d) {
     // :param data: data package as JSON dict.
     // :return: ---
 
-    if('event' in d && d.event === 'runBun') {
+    if(ext.isEvent(d, 'runBun')) {
         if(d.data.function === 'ping') {
             ping(d.data.parameter);
         }
@@ -188,12 +188,13 @@ Below this link, you see
 
 ### neutralino-extension.js
 
-| Method                           | Description                                                                                                                    |
-|----------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| NeutralinoExtension(debug=false) | Extension class. debug: Print data flow to the terminal.                                                                       |
+| Method                           | Description                                                                                                                     |
+|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| NeutralinoExtension(debug=false) | Extension class. debug: Print data flow to the terminal.                                                                        |
 | debugLog(msg, tag="info")        | Write a message to the terminal. msg: Message, tag: The message type, "in" for incoming, "out" for outgoing, "info" for others. |
-| run(onReceiveMessage)            | Starts the sockethandler main loop. onReceiveMessage: Callback function for incoming messages.                                 |
-| sendMessage(event, data=null)    | Send a message to Neutralino. event: Event-name, data: Data package as string or JSON.                                     |
+| isEvent(e, eventName)            | Checks the incoming event data package for a particular event.                                                                  |
+| run(onReceiveMessage)            | Starts the sockethandler main loop. onReceiveMessage: Callback function for incoming messages.                                  |
+| sendMessage(event, data=null)    | Send a message to Neutralino. event: Event-name, data: Data package as string or JSON.                                          |
 
 ### bun-extension.js
 

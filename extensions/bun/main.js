@@ -1,5 +1,5 @@
 
-// main.js 1.0.0
+// main.js 1.0.1
 //
 // Neutralino BunExtension.
 //
@@ -17,10 +17,10 @@ function ping(d) {
 
 function processAppEvent(d) {
     // Handle Neutralino app events.
-    // :param data: data package as JSON dict.
+    // :param d: data package as JSON dict.
     // :return: ---
 
-    if('event' in d && d.event === 'runBun') {
+    if(ext.isEvent(d, 'runBun')) {
         if(d.data.function === 'ping') {
             ping(d.data.parameter);
         }

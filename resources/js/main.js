@@ -27,5 +27,10 @@ Neutralino.events.on("pingResult", onPingResult);
     await Neutralino.window.setTitle(`Neutralino BunExtension ${NL_APPVERSION}`);
 })();
 
+(async () => {
+    await Neutralino.os.spawnProcess(`kill {pid}`);
+})();
+
 // Init Bun Extension
 const BUN = new BunExtension(true)
+
