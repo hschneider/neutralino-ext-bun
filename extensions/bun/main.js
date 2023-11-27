@@ -20,7 +20,7 @@ function processAppEvent(d) {
     // :param data: data package as JSON dict.
     // :return: ---
 
-    if(d.event === 'runBun') {
+    if('event' in d && d.event === 'runBun') {
         if(d.data.function === 'ping') {
             ping(d.data.parameter);
         }

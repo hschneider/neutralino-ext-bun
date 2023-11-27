@@ -47,8 +47,22 @@
   "extensions": [
     {
       "id": "extBun",
-      "commandDarwin": "export BUN_INSTALL=${NL_PATH}/extensions/bun/_runtime;bun run --inspect ${NL_PATH}/extensions/bun/main.js",
+      "commandDarwin": "export BUN_INSTALL=${NL_PATH}/extensions/bun/_runtime;${NL_PATH}/extensions/bun/_runtime/bin/bun run --inspect ${NL_PATH}/extensions/bun/main.js",
       "commandWindows": "${NL_PATH}/extensions/bun/_runtime/bin/bun.exe run --inspect ${NL_PATH}/extensions/bun/main.js"
     }
-  ]
+  ],
+  "buildScript": {
+    "mac": {
+      "architecture": ["x64", "arm64", "universal"],
+      "minimumOS": "10.13.0",
+      "appName":  "ExtBunDemo",
+      "appBundleName":    "ExtBunDemo",
+      "appIdentifier":    "com.marketmix.ext.bun.demo",
+      "appIcon":  "icon.icns"
+    },
+    "win": {
+      "architecture": ["x64"],
+      "appName":  "ExtBunDemo.exe"
+    }
+  }
 }
