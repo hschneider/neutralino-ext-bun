@@ -55,8 +55,7 @@
     "mac": {
       "architecture": [
         "x64",
-        "arm64",
-        "universal"
+        "arm64"
       ],
       "minimumOS": "10.13.0",
       "appName": "ExtBunDemo",
