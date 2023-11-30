@@ -204,10 +204,12 @@ Below this link, you see
 | async run(f, p=null)      | Call a Bun function. f: Function-name, p: Parameter data package as string or JSON.            |
 | async stop()              | Stop and quit the Bun extension and its parent app. Use this if Neutralino runs in Cloud-Mode. |
 
-## More about Neutralino
+## More about Neutralino & Bun
 [Bun Home](https://bun.sh)
 
 [NeutralinoJS Home](https://neutralino.js.org) 
+
+[**Neutralino Build Automation for macOS, Windows, Linux**](https://github.com/hschneider/neutralino-build-scripts)
 
 [Neutralino related blog posts at marketmix.com](https://marketmix.com/de/tag/neutralinojs/)
 
