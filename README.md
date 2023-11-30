@@ -205,12 +205,15 @@ Below this link, you see
 | async stop()              | Stop and quit the Bun extension and its parent app. Use this if Neutralino runs in Cloud-Mode. |
 
 ## More about Neutralino & Bun
-[Bun Home](https://bun.sh)
+- [Bun Home](https://bun.sh)
 
-[NeutralinoJS Home](https://neutralino.js.org) 
+- [NeutralinoJS Home](https://neutralino.js.org) 
 
-[Neutralino Build Automation for macOS, Windows, Linux](https://github.com/hschneider/neutralino-build-scripts)
+- [Neutralino Build Automation for macOS, Windows, Linux](https://github.com/hschneider/neutralino-build-scripts)
 
-[Neutralino related blog posts at marketmix.com](https://marketmix.com/de/tag/neutralinojs/)
+- [Neutralino related blog posts at marketmix.com](https://marketmix.com/de/tag/neutralinojs/)
+
+
 
 <img src="https://marketmix.com/git-assets/star-me-2.svg">
+
