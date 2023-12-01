@@ -48,7 +48,7 @@
     {
       "id": "extBun",
       "commandDarwin": "export BUN_INSTALL=${NL_PATH}/extensions/bun/_runtime;${NL_PATH}/extensions/bun/_runtime/bin/bun run --inspect ${NL_PATH}/extensions/bun/main.js",
-      "commandWindows": "${NL_PATH}/extensions/bun/_runtime/bin/bun.exe run --inspect ${NL_PATH}/extensions/bun/main.js"
+      "commandWindows": "${NL_PATH}/extensions/bun/_runtime/bin/bun run --inspect ${NL_PATH}/extensions/bun/main.js"
     }
   ],
   "buildScript": {
