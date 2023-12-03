@@ -122,7 +122,7 @@ The extension is activated with the last 2 lines.
 **processAppEvent** is a callback function, which is triggered with each event coming from the Neutralino app.
 
 In the callback function, you can process the incoming events by their name. In this case we react to the **"runBun"** event.
-d**ata.function** holds the requested Bun function and **data.parameter** its data payload as string or JSON.
+**data.function** holds the requested Bun function and **data.parameter** its data payload as string or JSON.
 
 if the requested function is named ping, we call the ping-function which sends a message back to Neutralino. 
 
