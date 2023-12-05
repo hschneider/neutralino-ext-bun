@@ -1,0 +1,3 @@
+#!/bin/bash
+export BUN_INSTALL=${1}/extensions/bun/_runtime
+$BUN_INSTALL/bin/bun run --inspect ${1}/extensions/bun/main.js $2 $3 $4
