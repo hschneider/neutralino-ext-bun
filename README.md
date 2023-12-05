@@ -8,7 +8,7 @@
 >Bun's Windows support is marked as 'highly experimental'.
 So don't expect this extension to work under Windows.
 However development is in progress, subscribe to this repo and stay tuned.
-If you require a stable NodeJS solution under Windows, ***check out [neutralino-ext-node](https://github.com/hschneider/neutralino-ext-node)***.
+If you require a stable NodeJS solution under Windows NOW, ***check out [neutralino-ext-node](https://github.com/hschneider/neutralino-ext-node)***.
 
 
 ### Why Bun?
