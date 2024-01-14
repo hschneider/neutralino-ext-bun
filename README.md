@@ -116,7 +116,7 @@ function processAppEvent(d) {
 
 // Activate Extension
 //
-const ext = new NeutralinoExtension(DEBUG);
+const ext = await new NeutralinoExtension(DEBUG);
 ext.run(processAppEvent);
 ```
 

@@ -2,28 +2,45 @@
 //
 // A Bun extension engine for Neutralino.
 //
-// (c)2023 Harald Schneider - marketmix.com
+// (c)2023-2024 Harald Schneider - marketmix.com
 
 class NeutralinoExtension {
     constructor(debug=false) {
-        this.version = '1.0.1';
 
+        this.version = '1.0.2';
         this.debug = debug;
+
+        return this._init();
+    }
+
+    async _init() {
+
         this.debugTermColors = true;             // Use terminal colors
         this.debugTermColorIN = '\x1b[32m';      // Green: All incoming events, except function calls
         this.debugTermColorCALL = '\x1b[91m';    // Red: Incoming function calls
         this.debugTermColorOUT = '\x1b[33m';     // Yellow: Outgoing events
-
-        this.port = Bun.argv[2].split('=')[1];
-        this.token = Bun.argv[3].split('=')[1];
-        this.idExtension = Bun.argv[4].split('=')[1];
-
-        this.urlSocket = `ws://127.0.0.1:${this.port}?extensionId=${this.idExtension}`;
-        this.socket = undefined;
-
         this.termOnWindowClose = true;   // Terminate on windowCloseEvent message
 
+        if(Bun.argv.length > 2) {
+            this.port = Bun.argv[2].split('=')[1];
+            this.token = Bun.argv[3].split('=')[1];
+            this.connectToken = '';
+            this.idExtension = Bun.argv[4].split('=')[1];
+            this.urlSocket = `ws://127.0.0.1:${this.port}?extensionId=${this.idExtension}`;
+        }
+        else {
+            let conf;
+            conf =  await Bun.stdin.json();
+            this.port = conf.nlPort;
+            this.token = conf.nlToken;
+            this.connectToken = conf.nlConnectToken;
+            this.idExtension = conf.nlExtensionId;
+            this.urlSocket = `ws://127.0.0.1:${this.port}?extensionId=${this.idExtension}&connectToken=${this.connectToken}`;
+        }
+
+        this.socket = undefined;
         this.debugLog(`${this.idExtension} running on port ${this.port}`);
+        return this;
     }
 
     sendMessage(event, data=null) {
