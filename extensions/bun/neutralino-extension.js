@@ -29,8 +29,7 @@ class NeutralinoExtension {
             this.urlSocket = `ws://127.0.0.1:${this.port}?extensionId=${this.idExtension}`;
         }
         else {
-            let conf;
-            conf =  await Bun.stdin.json();
+            let conf =  await Bun.stdin.json();
             this.port = conf.nlPort;
             this.token = conf.nlToken;
             this.connectToken = conf.nlConnectToken;
