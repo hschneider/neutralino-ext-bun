@@ -34,6 +34,12 @@ This extension adds a Bun backend to Neutralino with the following features:
 - Works in Window- and headless Cloud-Mode.
 - Terminates the Bun Runtime when the Neutralino app quits.
 
+### What this extension is not
+
+This extension does not make Bun/NodeJS transparently available in your NeutralinoJS App. You just call particular functions on a Bun Backend and get back the result.
+
+
+
 ![Neutralino Bun / NodeJS Extension](https://marketmix.com/git-assets/neutralino-ext-bun/bun-nodejs-neutralino.gif)
 
 ## Run the demo
