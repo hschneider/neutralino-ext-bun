@@ -1,4 +1,4 @@
-// Type definitions for Neutralino 3.13.0
+// Type definitions for Neutralino 5.0.0
 // Project: https://github.com/neutralinojs
 // Definitions project: https://github.com/neutralinojs/neutralino.js
 
@@ -7,11 +7,15 @@ declare namespace Neutralino {
 namespace filesystem {
     interface DirectoryEntry {
         entry: string;
+        path: string;
         type: string;
     }
     interface FileReaderOptions {
         pos: number;
         size: number;
+    }
+    interface DirectoryReaderOptions {
+        recursive: boolean;
     }
     interface OpenedFile {
         id: number;
@@ -31,7 +35,7 @@ namespace filesystem {
         path: string;
     }
     function createDirectory(path: string): Promise<void>;
-    function removeDirectory(path: string): Promise<void>;
+    function remove(path: string): Promise<void>;
     function writeFile(path: string, data: string): Promise<void>;
     function appendFile(path: string, data: string): Promise<void>;
     function writeBinaryFile(path: string, data: ArrayBuffer): Promise<void>;
@@ -44,10 +48,9 @@ namespace filesystem {
     function getWatchers(): Promise<Watcher[]>;
     function updateOpenedFile(id: number, event: string, data?: any): Promise<void>;
     function getOpenedFileInfo(id: number): Promise<OpenedFile>;
-    function removeFile(path: string): Promise<void>;
-    function readDirectory(path: string): Promise<DirectoryEntry[]>;
-    function copyFile(source: string, destination: string): Promise<void>;
-    function moveFile(source: string, destination: string): Promise<void>;
+    function readDirectory(path: string, options?: DirectoryReaderOptions): Promise<DirectoryEntry[]>;
+    function copy(source: string, destination: string): Promise<void>;
+    function move(source: string, destination: string): Promise<void>;
     function getStats(path: string): Promise<Stats>;
 }
 namespace os {
@@ -197,6 +200,9 @@ namespace app {
     function restartProcess(options?: RestartOptions): Promise<void>;
     function getConfig(): Promise<any>;
     function broadcast(event: string, data?: any): Promise<void>;
+    function readProcessInput(readAll?: boolean): Promise<string>;
+    function writeProcessOutput(data: string): Promise<void>;
+    function writeProcessError(data: string): Promise<void>;
 }
 namespace window {
     interface WindowOptions extends WindowSizeOptions, WindowPosOptions {
@@ -318,7 +324,7 @@ declare const NL_MODE: "window"|"browser"|"cloud";
 declare const NL_VERSION: string;
 
 /** Neutralinojs client version */
-declare const NL_CVERSION: "3.13.0";
+declare const NL_CVERSION: "5.0.0";
 
 /** Current working directory */
 declare const NL_CWD: string;
