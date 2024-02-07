@@ -22,6 +22,7 @@ Neutralino.events.on("pingResult", onPingResult);
     await Neutralino.window.setTitle(`Neutralino BunExtension ${NL_APPVERSION}`);
 })();
 
+
 // Init Bun Extension
 const BUN = new BunExtension(true)
 
