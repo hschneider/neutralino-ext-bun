@@ -7,8 +7,8 @@
 
 >GREAT NEWS: This extension works under Windows now.<br>
 > But keep in mind that Bun's Windows-support is still in progress.<br>
-> To install the latest Windows-relases see [Windows: Get the latest Bun Beta](https://github.com/hschneider/neutralino-ext-bun?tab=readme-ov-file#windows-get-the-latest-bun-beta)<br>
-If you require a more stable NodeJS solution under Windows NOW, ***check out [neutralino-ext-node](https://github.com/hschneider/neutralino-ext-node)***.
+> To install the latest Windows-relases see **[Windows: Get the latest Bun Beta](https://github.com/hschneider/neutralino-ext-bun?tab=readme-ov-file#windows-get-the-latest-bun-beta)**<br>
+If you require a more stable NodeJS solution under Windows NOW, **check out [neutralino-ext-node](https://github.com/hschneider/neutralino-ext-node)**.
 
 ### Why Bun?
 
