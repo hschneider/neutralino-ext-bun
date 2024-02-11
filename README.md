@@ -5,11 +5,8 @@
 # neutralino-ext-bun
 **A Bun / NodeJS Extension for Neutralino**
 
->Bun's Windows support is marked as 'highly experimental'.
-So don't expect this extension to work under Windows.
-However development is in progress, subscribe to this repo and stay tuned.
-If you require a stable NodeJS solution under Windows NOW, ***check out [neutralino-ext-node](https://github.com/hschneider/neutralino-ext-node)***.
-
+>GREAT NEWS: This extension works under Windows now. But keep in mind that Bun's Windows-support is still in progress.
+If you require a more stable NodeJS solution under Windows NOW, ***check out [neutralino-ext-node](https://github.com/hschneider/neutralino-ext-node)***.
 
 ### Why Bun?
 
@@ -94,6 +91,30 @@ The Bun runtime is extremely optimized for each architecture. As a result, you n
 Apple Silicon. So the x64 binary won't run in an arm64 environment, even with Rosetta enabled.
 
 Keep this in mind for your build process, when embedding Bun in your app-bundle. These **[Build Scripts](https://github.com/hschneider/neutralino-build-scripts)** will help you to mange different resources in your build-worflow.
+
+### Windows: Get the latest Bun Beta
+
+#### Prepare your PowerShell environment:
+Open a PowerShell and enter:
+```bash
+Set-ExecutionPolicy unrestricted
+```
+
+#### Get Bun:
+Open a fresh PowerShell and enter:
+```bash
+cd ext-bun
+export BUN_INSTALL=./extensions/bun/_runtime
+irm bun.sh/install.ps1 | iex
+```
+
+#### Upgrade Bun:
+If your installation is outdated and you want the latest built, enter:
+```bash
+cd ext-bun
+export BUN_INSTALL=./extensions/bun/_runtime
+bun upgrade
+```
 
 ## ./extensions/bun/main.js explained
 
