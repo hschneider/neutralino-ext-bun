@@ -14,7 +14,7 @@ function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 async function longRun(d) {
-    for(let i=0; i <= 5; i++) {
+    for(let i=1; i <= 5; i++) {
         ext.sendMessage('pingResult', `Long-running task ${i}/5`);
         await delay(1000);
     }
