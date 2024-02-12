@@ -10,6 +10,11 @@ async function onPingResult(e) {
     msg.innerHTML += e.detail + '<br>';
 }
 
+document.getElementById('link-long-run')
+    .addEventListener('click', () => {
+        BUN.run('longRun');
+    });
+
 // Init Neutralino
 //
 Neutralino.init();
