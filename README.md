@@ -87,6 +87,23 @@ Just follow these steps:
 - Add **BUN.run(function_name, data) to main.js** to run Bun functions from Neutralino.
 - Add **event listeners to main.js**, to fetch result data from Bun.
 
+### All platforms: Create a Bun binary bundle
+
+Bun allows to **[build single-file executables](https://bun.sh/docs/bundler/executables)**, containing all dependencies. The run-scripts in **extensions/bun** will automatically start binaries called **main-app** (macOS, Linux) or **main.exe** (Windows), when main.js is missing.
+
+So for distributing a binary bundle, all you have to do is:
+
+```bash
+cd extensions/bun
+bun build main.js --compile --outfile main-app
+```
+
+After this you can delete theses files and folders from the **extensions/bun** folder:
+
+- *.js
+- *.sh
+- _runtime
+
 ### macOS: Embedding Bun into an App-Bundle
 
 The Bun runtime is extremely optimized for each architecture. As a result, you need different Bun binaries for Intel and 
