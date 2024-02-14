@@ -10,10 +10,10 @@ if [ -n "$BUN_INSTALL" ]; then
     cp $BUN_INSTALL/bin/bun _runtime/bin
 
     if [[ $(uname) == "Darwin" ]]; then
-      echo "Remember to sign the _runtime/bin/bun binary before building your app bundle."
+      echo "Remember to sign the extensions/_runtime/bin/bun binary before building your app bundle."
     fi
 
-    echo "DONE :)"
+    echo "✔️ DONE 😊"
 else
-    echo "ERROR: No Bun installation found :-/"
+    echo "❌ ERROR: Bun installation not found 🫤"
 fi
