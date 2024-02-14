@@ -89,7 +89,7 @@ Just follow these steps:
 
 ### All platforms: Create a Bun single-file executable
 
-Bun allows to **[build single-file executables](https://bun.sh/docs/bundler/executables)**, containing all dependencies. The run-scripts in **extensions/bun** will automatically start binaries called **main-app** (macOS, Linux) or **main.exe** (Windows), when main.js is missing.
+Bun allows to **[build single-file executables](https://bun.sh/docs/bundler/executables)**, containing all dependencies. The run-scripts in **extensions/bun** will automatically start binaries called **main-app** (macOS, Linux) or **main-app.exe** (Windows), when main.js is missing.
 
 So for distributing a binary bundle, all you have to do is:
 
