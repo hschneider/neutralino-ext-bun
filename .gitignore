@@ -11,3 +11,9 @@ neutralino.js
 # Neutralinojs related files
 .storage
 *.log
+/_app_scaffolds/*
+/.tmp/
+/build-mac.sh
+/build-win.sh
+/extensions/bun/_runtime/bin/bun
+/extensions/bun/_runtime/bin/bun.exe
