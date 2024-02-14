@@ -1,9 +1,9 @@
 #!/bin/bash
 
-BUN_INSTALL="${1}/extensions/bun/_runtime"
+export BUN_INSTALL="${1}/extensions/bun/_runtime"
 
 if [ -e "${1}/extensions/bun/main.js" ]; then
-    $BUN_INSTALL/bin/bun run --inspect "${1}/extensions/bun/main.js" $2 $3 $4
+    $BUN_INSTALL/bin/bun run --inspect ""${1}/extensions/bun/main.js"" $2 $3 $4
 else
-    "${1}/extensions/bun/main-app" $2 $3 $4
+    ""${1}/extensions/bun/main-app"" $2 $3 $4
 fi
