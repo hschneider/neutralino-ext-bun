@@ -246,11 +246,11 @@ Below this link, you see
 
 ### bun-extension.js
 
-| Method                    | Description                                                                                    |
-|---------------------------|------------------------------------------------------------------------------------------------|
-| BunExtension(debug=false) | Extension class. debug: Print data flow to the dev-console.                                    |
-| async run(f, p=null)      | Call a Bun function. f: Function-name, p: Parameter data package as string or JSON.            |
-| async stop()              | Stop and quit the Bun extension and its parent app. Use this if Neutralino runs in Cloud-Mode. |
+| Method                    | Description                                                  |
+| ------------------------- | ------------------------------------------------------------ |
+| BunExtension(debug=false) | Extension class. debug: Print data flow to the dev-console.  |
+| async run(f, p=null)      | Call a Bun function. f: Function-name, p: Parameter data package as string or JSON. |
+| async stop()              | Stop and quit the Bun extension and its parent app. Use this if Neutralino runs in Cloud-Mode. This is called automatically, when the browser tab is closed. |
 
 ## More about Neutralino & Bun
 - [Bun Home](https://bun.sh)
