@@ -25,6 +25,7 @@ Neutralino.events.on("pingResult", onPingResult);
 //
 (async () => {
     await Neutralino.window.setTitle(`Neutralino BunExtension ${NL_APPVERSION}`);
+    await Neutralino.window.show();
 })();
 
 

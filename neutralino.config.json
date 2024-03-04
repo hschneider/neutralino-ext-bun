@@ -29,7 +29,7 @@
       "enableInspector": true,
       "borderless": false,
       "maximize": false,
-      "hidden": false,
+      "hidden": true,
       "center": true,
       "useSavedState": false,
       "resizable": true,
