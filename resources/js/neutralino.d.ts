@@ -1,4 +1,4 @@
-// Type definitions for Neutralino 5.0.0
+// Type definitions for Neutralino 5.0.1
 // Project: https://github.com/neutralinojs
 // Definitions project: https://github.com/neutralinojs/neutralino.js
 
@@ -305,42 +305,39 @@ interface Error {
 
 }
 
-/** Basic authentication token */
-declare const NL_TOKEN: string;
-
-/** Operating system name: Linux, Windows, or Darwin */
-declare const NL_OS: "Linux"|"Windows"|"Darwin";
-
-/** Application identifier */
-declare const NL_APPID: string;
-
+// --- globals ---
+/** Mode of the application: window, browser, cloud, or chrome */
+declare const NL_MODE: string;
 /** Application port */
 declare const NL_PORT: number;
-
-/** Mode of the application: window, browser, or cloud */
-declare const NL_MODE: "window"|"browser"|"cloud";
-
-/** Neutralinojs server version */
-declare const NL_VERSION: string;
-
-/** Neutralinojs client version */
-declare const NL_CVERSION: "5.0.0";
-
-/** Current working directory */
-declare const NL_CWD: string;
-
-/** Application path */
-declare const NL_PATH: string;
-
 /** Command-line arguments */
 declare const NL_ARGS: string[];
-
-/** Current process's identifier */
-declare const NL_PID: number
-
+/** Basic authentication token */
+declare const NL_TOKEN: string;
+/** Neutralinojs client version */
+declare const NL_CVERSION: string;
+/** Application identifier */
+declare const NL_APPID: string;
+/** Application version */
+declare const NL_APPVERSION: string;
+/** Application path */
+declare const NL_PATH: string;
+/** Returns true if extensions are enabled */
+declare const NL_EXTENABLED: boolean;
+/** Operating system name: Linux, Windows, Darwin, FreeBSD, or Uknown */
+declare const NL_OS: string;
+/** CPU architecture: x64, arm, itanium, ia32, or unknown */
+declare const NL_ARCH: string;
+/** Neutralinojs server version */
+declare const NL_VERSION: string;
+/** Current working directory */
+declare const NL_CWD: string;
+/** Identifier of the current process */
+declare const NL_PID: string;
+/** Source of application resources: bundle or directory */
+declare const NL_RESMODE: string;
 /** Release commit of the client library */
 declare const NL_CCOMMIT: string;
-
 /** An array of custom methods */
 declare const NL_CMETHODS: string[];
 
