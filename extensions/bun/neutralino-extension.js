@@ -7,7 +7,7 @@
 class NeutralinoExtension {
     constructor(debug=false) {
 
-        this.version = '1.0.3';
+        this.version = '1.0.4';
         this.debug = debug;
 
         return this._init();
@@ -93,8 +93,12 @@ class NeutralinoExtension {
             try {
                 if(self.termOnWindowClose) {
                     if(d.event === 'windowClose' || d.event === 'appClose') {
-                        // ToDo: Implement SIGTERM ?
-                        // Looks like the current Bun release quits properly.
+                        try {
+                            let pid = process.pid;
+                            process.kill(pid, 'SIGHUP');
+                            return;
+                        }
+                        catch (e) {}
                         return;
                     }
                 }
