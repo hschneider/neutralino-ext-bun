@@ -92,11 +92,9 @@ class NeutralinoExtension {
 
             try {
                 if(self.termOnWindowClose) {
-                    if(d.event === 'windowClose' || d.event === 'appClose') {
+                    if(msg.event === 'windowClose' || msg.event === 'appClose') {
                         try {
-                            let pid = process.pid;
-                            process.kill(pid, 'SIGHUP');
-                            return;
+                            process.exit(0);
                         }
                         catch (e) {}
                         return;
