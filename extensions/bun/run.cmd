@@ -1,7 +1,8 @@
-set BUN_INSTALL="%1\extensions\bun\_runtime"
+@echo off
+set BUN_INSTALL=%1\extensions\bun\_runtime
 
 if exist "%1\extensions\bun\main.js" (
-    %BUN_INSTALL%\bin\bun run --inspect "%1\extensions\bun\main.js" %2=%3 %4=%5 %5=%6
+    "%BUN_INSTALL%\bin\bun.exe" run "%1\extensions\bun\main.js"
 ) else (
-    "%1\extensions\bun\main-app.exe" %2=%3 %4=%5 %5=%6
+    "%1\extensions\bun\main-app.exe"
 )
