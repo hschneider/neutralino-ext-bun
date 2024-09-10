@@ -55,9 +55,9 @@
   "extensions": [
     {
       "id": "extBun",
-      "commandDarwin": "${NL_PATH}/extensions/bun/run ${NL_PATH}",
-      "commandLinux": "${NL_PATH}/extensions/bun/run ${NL_PATH}",
-      "commandWindows": "${NL_PATH}\\extensions\\bun\\run.cmd ${NL_PATH}"
+      "commandDarwin": "\"${NL_PATH}/extensions/bun/run\" \"${NL_PATH}\"",
+      "commandLinux": "\"${NL_PATH}/extensions/bun/run\" \"${NL_PATH}\"",
+      "commandWindows": "\"${NL_PATH}\\extensions\\bun\\run.cmd\" \"${NL_PATH}\""
     }
   ],
   "buildScript": {
