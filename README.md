@@ -111,7 +111,7 @@ Apple Silicon. So the x64 binary won't run in an arm64 environment, even with Ro
 
 Keep this in mind for your build process, when embedding Bun in your app-bundle. These **[Build Scripts](https://github.com/hschneider/neutralino-build-scripts)** will help you to mange different resources in your build-worflow.
 
-### Windows: Get the latest Bun Beta
+### Windows: Get the latest Bun Release 
 
 #### Prepare your PowerShell environment:
 Open a PowerShell and enter:
