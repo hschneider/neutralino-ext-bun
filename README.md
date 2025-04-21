@@ -5,11 +5,6 @@
 # neutralino-ext-bun
 **A Bun / NodeJS Extension for Neutralino**
 
-> **GREAT NEWS:**<br>This extension also works under Windows now.<br>
-> But keep in mind, that Bun for the native Windows platform is still work in progress.<br>
-> To install the latest release see **[Windows: Get the latest Bun Beta](https://github.com/hschneider/neutralino-ext-bun?tab=readme-ov-file#windows-get-the-latest-bun-beta)**<br>
-> If you require a more stable NodeJS solution under Windows, **check out [neutralino-ext-node](https://github.com/hschneider/neutralino-ext-node)**.
-
 ### Why Bun?
 
 Bun is an all-in-one JavaScript Runtime designed for speed:
